@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>CI/CD con Jenkins</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Reveal.js -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/night.css" id="theme">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/monokai.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Portada -->
+      <section>
+        <h1>CI/CD con Jenkins</h1>
+        <img src="assets/img/jenkins.png" class="jenkins-logo">
+        <p><i>Automatización de Integración y Entrega Continua</i></p>
+      </section>
+
+      <!-- Agenda -->
+      <section>
+        <h2>Agenda</h2>
+        <ol>
+          <li>¿Qué es CI/CD?</li>
+          <li>Jenkins: el motor de la automatización</li>
+          <li>Componentes principales</li>
+          <li>Pipelines en Jenkins</li>
+          <li>Demo interactiva</li>
+          <li>Buenas prácticas</li>
+          <li>Conclusiones</li>
+        </ol>
+      </section>
+
+      <!-- CI/CD -->
+      <section>
+        <h2>¿Qué es CI/CD?</h2>
+        <ul>
+          <li><b>CI (Integración Continua):</b> Integrar cambios frecuentemente.</li>
+          <li><b>CD (Entrega/Despliegue Continuo):</b> Automatizar pruebas y despliegues.</li>
+        </ul>
+        <img src="https://www.redhat.com/cms/managed-files/ci-cd-flow-desktop.png" style="width:70%;border-radius:10px;">
+      </section>
+
+      <!-- Jenkins -->
+      <section>
+        <h2>Jenkins</h2>
+        <p>Servidor de automatización <b>open source</b> para CI/CD.</p>
+        <ul>
+          <li>Pipeline-as-code</li>
+          <li>Gran ecosistema de plugins</li>
+          <li>Compatible con Git, Docker, Kubernetes</li>
+        </ul>
+      </section>
+
+      <!-- Componentes -->
+      <section>
+        <h2>Componentes de Jenkins</h2>
+        <ul>
+          <li><b>Controller:</b> Coordina trabajos</li>
+          <li><b>Agentes:</b> Ejecutan tareas</li>
+          <li><b>Plugins:</b> Extienden capacidades</li>
+          <li><b>Pipelines:</b> Automatización como código</li>
+        </ul>
+      </section>
+
+      <!-- Pipeline -->
+      <section>
+        <h2>Pipeline de ejemplo</h2>
+        <pre><code class="language-groovy">
+pipeline {
+  agent any
+  stages {
+    stage('Build') {
+      steps { sh 'mvn clean package' }
+    }
+    stage('Test') {
+      steps { sh 'mvn test' }
+    }
+    stage('Deploy') {
+      steps { sh './deploy.sh' }
+    }
+  }
+}
+        </code></pre>
+      </section>
+
+      <!-- Demo Interactiva -->
+      <section>
+        <h2>Demo interactiva</h2>
+        <p>Simula la ejecución de un pipeline:</p>
+        <button class="pipeline-btn" onclick="runStep('Build 🚀')">Ejecutar Build</button>
+        <button class="pipeline-btn" onclick="runStep('Tests ✅')">Ejecutar Tests</button>
+        <button class="pipeline-btn" onclick="runStep('Deploy 🌍')">Ejecutar Deploy</button>
+        <div id="pipeline-output" class="output-box"></div>
+      </section>
+
+      <!-- Buenas prácticas -->
+      <section>
+        <h2>Buenas prácticas</h2>
+        <ul>
+          <li>Usar pipelines declarativos</li>
+          <li>Automatizar pruebas en cada commit</li>
+          <li>Integrar con Docker y Kubernetes</li>
+          <li>Manejar credenciales de forma segura</li>
+        </ul>
+      </section>
+
+      <!-- Conclusiones -->
+      <section>
+        <h2>Conclusiones</h2>
+        <p>Con Jenkins podemos:</p>
+        <ul>
+          <li>Automatizar procesos</li>
+          <li>Asegurar calidad</li>
+          <li>Desplegar más rápido</li>
+        </ul>
+      </section>
+
+      <!-- Cierre -->
+      <section>
+        <h2>¡Gracias!</h2>
+        <p>Recursos:</p>
+        <ul>
+          <li><a href="https://www.jenkins.io">Jenkins.io</a></li>
+          <li><a href="https://www.jenkins.io/doc/book/pipeline/">Docs Pipelines</a></li>
+        </ul>
+        <p><i>Preguntas 👀</i></p>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Scripts Reveal.js -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/highlight.js"></script>
+  <script src="assets/js/custom.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      transition: 'fade',
+      plugins: [ RevealHighlight ]
+    });
+  </script>
+</body>
+</html>
+

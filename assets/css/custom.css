@@ -1,0 +1,34 @@
+.reveal h1, .reveal h2, .reveal h3 {
+  color: #f0db4f;
+}
+
+.jenkins-logo {
+  width: 180px;
+  margin: 20px auto;
+  display: block;
+}
+
+.pipeline-btn {
+  background: #f0db4f;
+  border: none;
+  padding: 12px 20px;
+  margin: 10px;
+  font-size: 1.2em;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.pipeline-btn:hover {
+  background: #ffd83d;
+}
+
+.output-box {
+  margin-top: 20px;
+  padding: 15px;
+  border: 2px solid #f0db4f;
+  border-radius: 10px;
+  font-family: monospace;
+  min-height: 50px;
+  color: #fff;
+}
+
